@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListHomework.MainPageLand">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Медведи" FontSize="Large" FontAttributes="Bold" Margin="10, 10"/>
+
+            <CollectionView ItemsSource="{Binding Animals}"
+                            ItemsLayout="HorizontalList"
+                            SelectionMode="Single"
+                            SelectionChanged="OnItem_Tapped">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" Margin="12">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*" />
+                                <RowDefinition Height="2*" />
+                            </Grid.RowDefinitions>
+
+                            <Image Source="{Binding ImageUrl}"
+                               Grid.Row="0"
+                               Aspect="AspectFill"
+                               WidthRequest="100"
+                               HeightRequest="150" />
+
+                            <StackLayout Grid.Row="1">
+
+                                <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+
+
+                                <Label Text="{Binding Location}"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   VerticalOptions="Start"
+                                   FontAttributes="Italic" />
+                            </StackLayout>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
